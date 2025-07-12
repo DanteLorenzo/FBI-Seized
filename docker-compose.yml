@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  fbi_seized:
+    container_name: nginx_fbi_siezed
+    image: nginx:1.24
+    restart: unless-stopped
+    # ports:
+    #   - '80:80'
+    volumes:
+      - ./src:/usr/share/nginx/html
+    networks:
+      - master
+
+networks:
+  master:
+    external: true
